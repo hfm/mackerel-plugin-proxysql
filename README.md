@@ -1,4 +1,4 @@
-mackerel-plugin-proxysql
+mackerel-plugin-proxysql [![Build Status](https://travis-ci.org/hfm/mackerel-plugin-proxysql.svg?branch=master)](https://travis-ci.org/hfm/mackerel-plugin-proxysql)
 =====================
 
 [ProxySQL](http://www.proxysql.com/) custom metrics plugin for mackerel.io agent.
