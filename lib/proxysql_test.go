@@ -1,8 +1,6 @@
 package mpproxysql
 
 import (
-	"os"
-	"path/filepath"
 	"testing"
 
 	"gopkg.in/DATA-DOG/go-sqlmock.v1"
@@ -150,13 +148,5 @@ func TestParseStatsMysqlGlobal(t *testing.T) {
 		if expect[k] != result[k] {
 			t.Errorf("%s does not match\nExpect: %v\nResult: %v", k, expect[k], result[k])
 		}
-	}
-}
-
-func TestReadConfig(t *testing.T) {
-	file := filepath.Join("..", "test", "proxysql.cnf")
-	_, err := os.Open(file)
-	if err != nil {
-		t.Errorf("Cannot read file: %v", err)
 	}
 }
