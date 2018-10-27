@@ -9,6 +9,7 @@ import (
 	"strings"
 )
 
+// Config for ProxySQL
 type Config struct {
 	adminCred string
 }
