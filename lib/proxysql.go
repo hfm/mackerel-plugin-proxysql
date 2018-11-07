@@ -211,6 +211,7 @@ func (m *ProxySQLPlugin) GraphDefinition() map[string]mp.Graphs {
 
 // Do the plugin
 func Do() {
+	optCnf := flag.String("config", "/etc/proxysql.cnf", "Path to config file")
 	optHost := flag.String("host", "0.0.0.0", "Hostname")
 	optPort := flag.String("port", "6032", "Port")
 	optSocket := flag.String("socket", "", "Path to unix socket")
@@ -221,6 +222,12 @@ func Do() {
 	flag.Parse()
 
 	var proxysql ProxySQLPlugin
+
+	if *optCnf != "" {
+		conf := ReadConfig(*optCnf)
+		s := strings.Split(conf.adminCred, ":")
+		*optUser, *optPass = s[0], s[1]
+	}
 
 	if *optSocket != "" {
 		proxysql.URI = fmt.Sprintf("unix:%s*stats/%s/%s", *optSocket, *optUser, *optPass)
