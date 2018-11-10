@@ -20,3 +20,8 @@ command = "/path/to/mackerel-plugin-proxysql -host=0.0.0.0 -port=6032 -username=
 [plugin.metrics.proxysql]
 command = "/path/to/mackerel-plugin-proxysql -socket=/var/lib/proxysql/proxysql.sock -username=proxysql_remoteadmin -password=proxysql_remoteadmin"
 ```
+
+```toml
+[plugin.metrics.proxysql]
+command = "/path/to/mackerel-plugin-proxysql -config=/path/to/proxysql.cnf"
+```
